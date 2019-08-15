@@ -6,7 +6,6 @@ const { createFilter } = require('rollup-pluginutils');
 const nodeResolve = require('rollup-plugin-node-resolve');
 const babel = require('rollup-plugin-babel');
 const commonjs = require('rollup-plugin-commonjs');
-const svgResultCarbonIcon = require('./rollup-plugin-svg-result-carbon-icon');
 
 const readFile = promisify(fs.readFile);
 const scssFilter = createFilter('**/*.scss');
@@ -26,9 +25,6 @@ module.exports = {
         return undefined;
       },
     },
-    svgResultCarbonIcon({
-      include: 'node_modules/**/@carbon/icons/**',
-    }),
     babel({
       exclude: /node_modules[\\/](?!(lit|@webcomponents|@carbon[\\/]icons))/,
       extensions: ['.js', '.ts'],

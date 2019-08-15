@@ -1,4 +1,4 @@
-# `PF4 Web Components P.O.C.`
+# PF4 Web Components P.O.C.
 
 `pf4-webcomponents-poc` is a variant of PatternFly 4 Design System with Custom Elements v1 and Shadow DOM v1 specs.
 
@@ -29,12 +29,12 @@ Experimental at this moment, with enthusiasm.
 
 ## Running React/Angular demo
 
-- React: `yarn storybook:react` (Live demo: https://carbon-custom-elements-react.netlify.com/)
-- Angular: `yarn storybook:angular` (Live demo: https://carbon-custom-elements-angular.netlify.com/)
+- React: `yarn storybook:react`
+- Angular: `yarn storybook:angular`
 
 ## List of available components
 
-View available web components at: https://carbon-custom-elements.netlify.com/. You can see usage information in several ways:
+View available web components at: http://pf4-webcomponents-poc.surge.sh/. You can see usage information in several ways:
 
 1. Clicking the **KNOBS** tab at the bottom and changing values there. Most knobs are shown as something like `Button kind (kind)`, where `kind` is the attribute name
 2. Clicking the **ACTION LOGGER** tab at the bottom and interacting with the selected component. You may see something like `bx-modal-closed` which typically indicates that an event with such event type is fired. You can also expand the twistie to see the details of the event

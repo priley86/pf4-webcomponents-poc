@@ -16,7 +16,6 @@ const { rollup } = require('rollup');
 const rollupConfigDev = require('../rollup.config.dev');
 const rollupConfigProd = require('../rollup.config.prod');
 const babelPluginResourceJSPaths = require('../babel-plugin-resource-js-paths');
-const createSVGResultFromCarbonIcon = require('../tools/svg-result-carbon-icon');
 
 const config = require('./config');
 
@@ -24,27 +23,6 @@ const buildProd = process.env.NODE_ENV === config.ENV_PRODUCTION;
 
 module.exports = {
   modules: {
-    icons() {
-      return gulp
-        .src([`${config.iconsDir}/**/*.js`, `!${config.iconsDir}/index.js`])
-        .pipe(
-          through2.obj((file, enc, done) => {
-            const descriptor = require(file.path); // eslint-disable-line global-require,import/no-dynamic-require
-            const iconsESPath = path.resolve(config.jsDestDir, 'icons', path.relative(config.iconsDir, file.path));
-            const spreadModulePath = path.resolve(__dirname, '../es/globals/directives/spread');
-            file.contents = Buffer.from(`
-              import { svg } from 'lit-html';
-              import spread from '${path.relative(path.dirname(iconsESPath), spreadModulePath)}';
-              const svgResultCarbonIcon = ${createSVGResultFromCarbonIcon(descriptor)};
-              export default svgResultCarbonIcon;
-            `);
-            done(null, file);
-          })
-        )
-        .pipe(prettier())
-        .pipe(gulp.dest(path.resolve(config.jsDestDir, 'icons')));
-    },
-
     sass() {
       return gulp
         .src(`${config.srcDir}/**/*.scss`)
