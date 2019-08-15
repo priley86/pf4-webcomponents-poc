@@ -1,22 +1,14 @@
-import { BUTTON_KIND } from '../../src/components/button/button';
-
-describe('bx-btn', function() {
+describe('pf-btn', function() {
   describe('Changing button type', function() {
     let elem: HTMLElement | null;
 
     beforeEach(async function() {
-      elem = document.body.appendChild(document.createElement('bx-btn'));
+      elem = document.body.appendChild(document.createElement('pf-btn'));
       await Promise.resolve();
     });
 
     it('should choose the right template for default type', function() {
-      expect(elem!.shadowRoot!.querySelectorAll('button.bx--btn').length).toBe(1);
-    });
-
-    it('should choose the right template for link type', async function() {
-      elem!.setAttribute('href', 'about:blank');
-      await Promise.resolve();
-      expect(elem!.shadowRoot!.querySelectorAll('a.bx--btn').length).toBe(1);
+      expect(elem!.shadowRoot!.querySelectorAll('button.pf-c-button').length).toBe(1);
     });
 
     afterEach(function() {
@@ -31,25 +23,13 @@ describe('bx-btn', function() {
     let elem: HTMLElement | null;
 
     beforeAll(function() {
-      elem = document.body.appendChild(document.createElement('bx-btn'));
+      elem = document.body.appendChild(document.createElement('pf-btn'));
     });
 
     it('should deactivate when disabled attribute is set', async function() {
       elem!.setAttribute('disabled', '');
       await Promise.resolve();
-      expect(elem!.shadowRoot!.querySelectorAll('.bx--btn--disabled').length).toBe(1);
-    });
-
-    it('should make it small when small attribute is set', async function() {
-      elem!.setAttribute('small', '');
-      await Promise.resolve();
-      expect(elem!.shadowRoot!.querySelectorAll('.bx--btn--sm').length).toBe(1);
-    });
-
-    it('should allow user to select button type', async function() {
-      elem!.setAttribute('kind', BUTTON_KIND.GHOST);
-      await Promise.resolve();
-      expect(elem!.shadowRoot!.querySelectorAll('.bx--btn--ghost').length).toBe(1);
+      expect(elem!.shadowRoot!.querySelectorAll('button[disabled]').length).toBe(1);
     });
 
     afterAll(function() {

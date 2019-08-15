@@ -16,6 +16,7 @@ module.exports = {
   rules: {
     'no-restricted-globals': ['error', 'isFinite'].concat(restrictedGlobals),
     'import/extensions': 0,
+    'import/prefer-default-export': 0,
     'import/no-extraneous-dependencies': [
       2,
       {
