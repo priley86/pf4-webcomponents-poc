@@ -119,7 +119,7 @@
     "node-sass": "^4.11.0",
     "null-loader": "^2.0.0",
     "polymer-webpack-loader": "^2.0.0",
-    "postcss": "^7.0.0",
+    "postcss": "^8.2.10",
     "postcss-discard-duplicates": "^4.0.0",
     "postcss-loader": "^3.0.0",
     "postcss-selector-parser": "^6.0.0",
